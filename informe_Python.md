@@ -1,5 +1,178 @@
 # Guía de referencia rápida de **_Python_**
 
+## Generalidades
+
+* Una declaración debe estar toda en una sola línea. Para romper una declaración en múltiples líneas debe usarse ``\`` al final de cada una de ellas (salvo la última).  
+_Excepción_: siempre se puede romper dentro de cualquier par ``(), [] o {}``, o en una cadena delimitada por triple comillas.
+
+* En una línea pueden aparecer más de una declaración separándolas por ``;``.
+
+* Los comentarios comienzan con ``#`` y continúan hasta el final de la línea.
+
+* Python también permite incluir comentarios de varias líneas. Éstos deben de estar encerrados entre triples comillas ``"""`` o apóstrofes ``' ' '``. Este tipo de comentarios son conocidos como "_docstrings_" y son utilizados para generar documentación que se desplegaría mediante la función `help()`.
+
+* Un identificador está formado por una letra o símbolo `_` seguido de más
+letras, números o símbolos `_`.
+
+* Python distingue mayúsculas de minúsculas.
+
+## Indentación
+
+> _En Python la indentación forma parte de la sintaxis._
+
+La indentación se utiliza para delimitar bloques de código dentro de un condicional, ciclo, función, etc., sin necesidad de utilizar caracteres delimitadores como ocurre en otros lenguajes de programación.
+
+La indentación es la forma que usa Python para agrupar declaraciones. En el intérprete interactivo se debe teclear un tab o espacio(s) para cada línea indentada. Todos los editores de texto tienen la facilidad de agregar la indentación automáticamente.
+
+Al ingresar una declaración compuesta en forma interactiva, se debe finalizar con una línea en blanco para indicar que está completa (ya que el analizador no puede adivinar cuándo se tecleó la última línea). Cada línea de un bloque básico debe estar indentada de la misma forma.
+
+## Palabras reservadas
+
+Las palabras reservadas (keywords) corresponden a los nombres de las declaraciones que el intérprete de Python incluye por defecto. No se deben utilizar dichas palabras para asignar nombres a otros objetos.
+El listado de palabras reservadas puede ser consultado ingresando ``help('keywords')`` desde la interfaz interactiva.
+
+```
+* False
+* def
+* if
+* raise
+* None
+* del
+* import
+* return
+* True
+* elif
+* in
+* try
+* and
+* else
+* is
+* while
+* as
+* except
+* lambda
+* with
+* assert
+* finally
+* nonlocal
+* yield
+* break
+* for
+* not
+* class
+* from
+* or
+* continue
+* global
+* pass
+```
+
+El intérprete utiliza otros elementos por defecto los cuales aún cuando son parte fundamental del lenguaje y aún cuando no son palabras reservadas, no se recomienda utilizarlos como nombres.
+El módulo `__buitlins__` contiene al resto de estos elementos.
+
+## El espacio de nombres (namespace)
+
+* Python es un lenguaje de muy alto nivel en el que todos sus elementos son objetos, incluyendo los tipos de datos básicos.
+* La gestión del uso de la memoria es automático en Python, tanto para la asignación de memoria al crear un objeto, como para la recuperación de memoria al desecharlo.
+* El espacio de nombres (namespace) contiene un listado de los objetos existentes en la memoria del sistema y los nombres a los que están ligados.
+* Un objeto puede tener más de un nombre.
+* Si un objeto no está ligado al menos a un nombre, dicho objeto es desechado.
+* El intérprete de Python tiene un espacio de nombres principal, pero cada función, módulo y objeto tiene su propio espacio de nombres. A ésto se le conoce como "Ámbito" (Scope).
+
+## El operador de asignación `=`
+
+Para asignar un nombre a un objeto, se utiliza el el operador de asignación ``=`` con la siguiente sintaxis:
+
+```
+<identificador> = <objeto>
+
+saludo = 'Hola'
+matriz = [["autobús", "diesel", True], ["automóvil", "gasolina", True]]
+numero = 23.45
+```
+Es posible asignar a varios nombres un número igual de objetos usando un sólo operador de asignación mediante la siguiente sintaxis:
+```
+<nombre 1>, <nombre 2>, <nombre 3>, ..., <nombre n> = <objeto 1>, <objeto 2>, <objeto 3>, ..., <objeto n>
+entero, flotante, complejo, booleano = 12, 4.5, (12.3 + 23j), True
+```
+
+## Sintaxis para la elaboración de nombres
+
+* Python 3 acepta el uso de _unicode_, por lo que es posible utilizar cualquier caracter alfabético, incluso aquellos distintos al alfabeto occidental, para la elaboración de nombres.
+* Los nombres pueden empezar con un guión bajo `_` o un caracter alfabético.
+* Después del primer caracter, se pueden utilizar caracteres alfabéticos, números y/o guiones bajos.
+* No se permiten caracteres distintos a los alfabéticos o que pudieran confundirse con operadores como ``|``,`` ~``, ``#``, ``-``, etc.
+* Se pueden utilizar mayúsculas, pero cabe señalar que **Python es sensible a mayúsculas.**
+
+```
+_saludo = 'Hola'
+número = 23
+Numero = 45.32
+```
+
+## La función `id()`
+
+Cada objeto cuenta con una "identidad", la cual corresponde a la posición en la que se encuentra almacenado en la memoria. La función `id()` permite conocer esta identidad por medio del nombre.
+
+```
+>>> numero = 45
+>>> otro_numero = 45
+>>> id(numero)
+139900019112480
+>>> id(otro_numero)
+139900019112480
+>>> otro_numero = 25
+>>> id(otro_numero)
+139900019111840
+>>> id(numero)
+139900019112480
+>>> numero
+45
+```
+## Expresiones y declaraciones
+#### Expresiones
+
+Una expresión es una combinación de valores, operadores, funciones y métodos que da por resultado un valor en una sola línea.
+
+```
+>>> 1 + 1
+2
+>>> 45 >= 11
+True
+>>> "carro".upper()
+'CARRO'
+```
+
+#### Declaraciones (Statements)
+
+Las declaraciones son unidades de código que el interprete de Python puede ejecutar. En realidad una declaración es un tipo de expresión.
+```
+>>> y = 0
+>>> for x in range(25):
+>>>    y += x
+>>> print(y)
+300
+```
+
+El intérprete de Python permite ejecutar múltiples expresiones en una sola, separándolas por punto y comas ``;``. En este caso, sólo se desplegará el resultado de la última expresión ejecutada.
+```
+>>> a = 3; b = a * 4.5; b; a + 5
+8
+```
+_Advertencia_: No se recomienda usar este recurso ya que se corre el riesgo de ofuscar el código innecesariamente.
+
+#### Expresiones en el entorno interactivo.
+La interfaz interactiva evalúa las expresiones tan pronto como son ingresadas y en su caso, despliega el resultado.
+```
+>>> 4 * 3
+12
+>>> 15 == 25
+False
+>>> 'hola' + ' mundo'
+'hola mundo'
+```
+
+
 ### Listas
 Python tiene varios tipos de datos compuestos, usados para agrupar otros valores. El más versátil es la **_lista_**, la cual puede ser escrita como una lista de valores separados por coma (ítems) entre corchetes. Las listas pueden contener ítems de diferentes tipos.
 
