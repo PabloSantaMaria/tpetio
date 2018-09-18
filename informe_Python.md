@@ -3,13 +3,15 @@
 ### Listas
 Python tiene varios tipos de datos compuestos, usados para agrupar otros valores. El más versátil es la **_lista_**, la cual puede ser escrita como una lista de valores separados por coma (ítems) entre corchetes. Las listas pueden contener ítems de diferentes tipos.
 
-```
+```python
 >>> cuadrados = [1, 4, 9, 16, 25]
 >>> cuadrados
 [1, 4, 9, 16, 25]
 ```
+
 Las listas pueden ser indexadas y rebanadas:
-```
+
+```python
 >>> cuadrados[0]  # índices retornan un ítem
 1
 >>> cuadrados[-1]
@@ -17,18 +19,24 @@ Las listas pueden ser indexadas y rebanadas:
 >>> cuadrados[-3:]  # rebanadas retornan una nueva lista
 [9, 16, 25]
 ```
+
 Todas las operaciones de rebanado devuelven una nueva lista conteniendo los elementos pedidos. Esto significa que la siguiente rebanada devuelve una copia superficial de la lista:
-```
+
+```python
 >>> cuadrados[:]
 [1, 4, 9, 16, 25]
 ```
+
 Las listas también soportan operaciones como concatenación:
-```
+
+```python
 >>> cuadrados + [36, 49, 64, 81, 100]
 [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
 ```
+
 A diferencia de las cadenas de texto, que son inmutables, las listas son un tipo mutable y es posible cambiar un su contenido.
-```
+
+```python
 >>> letras = ['a', 'b', 'c', 'd', 'e', 'f', 'g']
 >>> letras
 ['a', 'b', 'c', 'd', 'e', 'f', 'g']
@@ -45,8 +53,10 @@ A diferencia de las cadenas de texto, que son inmutables, las listas son un tipo
 >>> letras
 []
 ```
+
 Es posible anidar listas (crear listas que contengan otras listas), por ejemplo:
-```
+
+```python
 >>> a = ['a', 'b', 'c']
 >>> n = [1, 2, 3]
 >>> x = [a, n]
@@ -57,49 +67,63 @@ Es posible anidar listas (crear listas que contengan otras listas), por ejemplo:
 >>> x[0][1]
 'b'
 ```
-#### Métodos de los objetos _lista_ :
+
+#### Métodos de los objetos _lista_
 
 * `list.append(x)`
+
 Agrega un ítem al final de la lista. Equivale a `a[len(a):] = [x]`.
 
 * `list.extend(iterable)`
+
 Extiende la lista agregándole todos los ítems del iterable. Equivale a `a[len(a):] = iterable`.
 
 * `list.insert(i, x)`
+
 Inserta un ítem en una posición dada. El primer argumento es el índice del ítem delante del cual se insertará, por lo tanto `a.insert(0, x)` inserta al principio de la lista, y `a.insert(len(a), x)` equivale a `a.append(x)`.
 
 * `list.remove(x)`
+
 Quita el primer ítem de la lista cuyo valor sea x. Da un error si no existe tal ítem.
 
 * `list.pop([i])`
+
 Quita el ítem en la posición dada de la lista, y lo devuelve. Si no se especifica un índice, `a.pop()` quita y devuelve el último ítem de la lista.
 
 * `list.clear()`
+
 Quita todos los elementos de la lista. Equivalente a `del a[:]`.
 
 * `list.index(x[, start[, end]])`
+
 Devuelve un índice basado en cero en la lista del primer ítem cuyo valor sea x. Levanta una excepción `ValueError` si no existe tal ítem.
 Los argumentos opcionales `start` y `end` son interpretados como la notación de rebanadas y se usan para limitar la búsqueda a una subsecuencia particular de la lista. El `index` retornado se calcula de manera relativa al inicio de la secuencia completa en lugar de con respecto al argumento `start`.
 
 * `list.count(x)`
+
 Devuelve el número de veces que `x` aparece en la lista.
 
 * `list.sort(key=None, reverse=False)`
+
 Ordena los ítems de la lista in situ (los argumentos pueden ser usados para personalizar el orden de la lista, ver `sorted()` para su explicación).
 
 * `list.reverse()`
+
 Invierte los elementos de la lista in situ.
 
 * `list.copy()`
+
 Devuelve una copia superficial de la lista. Equivalente a `a[:]`.
 
 ### Conjuntos
+
 Python también incluye un tipo de dato para conjuntos. Un conjunto es una colección no ordenada y sin elementos repetidos. Los usos básicos de éstos incluyen verificación de pertenencia y eliminación de entradas duplicadas. Los conjuntos también soportan operaciones matemáticas como la unión, intersección, diferencia, y diferencia simétrica.
 
 Las llaves o la función `set()` pueden usarse para crear conjuntos. Para crear un conjunto vacío hay que usar `set()`, no `{}`; esto último crea un _diccionario_ vacío.
 
 Ejemplo:
-```
+
+```python
 >>> canasta = {'manzana', 'naranja', 'manzana', 'pera', 'naranja', 'banana'}
 >>> print fruta                  # muestra que se removieron los duplicados
 {'pera', 'manzana', 'banana', 'naranja'}
@@ -125,6 +149,7 @@ False
 ```
 
 ### Diccionarios
+
 Los diccionarios se encuentran a veces en otros lenguajes como “memorias asociativas” o “arreglos asociativos”. Los diccionarios se indexan con claves, que pueden ser cualquier tipo inmutable; las cadenas y números siempre pueden ser claves. No es posible usar listas como claves, ya que las listas pueden modificarse usando asignación por índice, asignación por sección, o métodos como `append()` y `extend()`.
 Un diccionario es un conjunto no ordenado de pares _clave:valor_, con el requerimiento de que las claves sean únicas (dentro de un diccionario en particular). Un par de llaves crean un diccionario vacío: ``{}``. Colocar una lista de pares _clave:valor_ separados por comas entre las llaves añade pares _clave:valor_ iniciales al diccionario; esta también es la forma en que los diccionarios se presentan en la salida.
 
@@ -133,7 +158,8 @@ Las operaciones principales sobre un diccionario son guardar un valor con una cl
 El método `list(d.keys())` en un diccionario devuelve una lista de todas las claves usadas en el diccionario, en un orden arbitrario, y `sorted(d.keys())` las devuelve ordenadas. Para controlar si una clave está en el diccionario, se una `in`.
 
 Ejemplo:
-```
+
+```python
 >>> tel = {'jack': 4098, 'sape': 4139}
 >>> tel['guido'] = 4127
 >>> tel
@@ -160,7 +186,7 @@ False
 
 ## Operadores
 
-#### Operadores aritméticos
+### Operadores aritméticos
 
 Operador  |  Descripción
 --|--
@@ -173,7 +199,7 @@ Operador  |  Descripción
 //  |  División entera
 %  |  Residuo
 
-##### Reglas de precedencia
+#### Reglas de precedencia
 
 1. Paréntesis.
 2. Exponente.
@@ -182,19 +208,22 @@ Operador  |  Descripción
 5. Suma.
 6. Sustracción.  
 
-#### Operadores para objetos de tipo str
+### Operadores para objetos de tipo str
 
 Operador  |  Descripción
 --|--
 +  |  Suma
 *  |  Repetición
-```
+
+```python
 >>> "hola" + "mundo"
 'holamundo'
 >>> 'hola' * 3
 'holaholahola'
 ```
-#### Operadores de relación
+
+### Operadores de relación
+
 Los operadores de relación evalúan si dos valores/objetos cumplen con una condición específica. El resultado de esta evaluación es un objeto de tipo bool.
 
 Operador  |  Evalúa
@@ -217,7 +246,8 @@ not |  not x Contrario a x
 #### Operadores de pertenencia
 
 Los operadores `in` y `not in` evalúan si un objeto se encuentra dentro de otro.
-```
+
+```python
 >>> 'a' in 'Hola'
 True
 >>> 'z' in 'Hola'
@@ -227,7 +257,9 @@ False
 >>> 'z' not in 'Hola'
 True
 ```
-#### Operadores de asignación
+
+### Operadores de asignación
+
 Los operadores de asignación se utilizan para enlazar un objeto/valor con un nombre.
 
 Operador  |  Descripción
@@ -246,10 +278,12 @@ Operador  |  Descripción
 ### Condicionales
 
 #### Sentencia `if`
+
 La palabra clave if siempre evalúa una expresión lógica y en caso de que dicha expresión de por resultado el valor `True`, se ejecutará el código indentado justo por debajo del `if`. En caso de que la declaración resulte en el valor `False`, el intérprete ignorará el bloque de código indentado y éste continuará con la instrucción siguiente inmediata a la indentación.
 Es posible evaluar más de una expresión lógica mediante el uso de `elif`. En el caso de que exista más de una expresión lógica que de por resultado `True`, Python ejecutará solamente el código delimitado por la primera que ocurra.
 En caso de que ninguna de las condiciones de por resultado `True` se puede utilizar `else` al final de la estructura.
-```
+
+```python
 <flujo principal>
 ...
 ...
@@ -257,8 +291,10 @@ if <expresión lógica>:
      <bloque inscrito a if>
 <flujo principal>
 ```
+
 Ejemplo:
-```
+
+```python
 >>> x = int(input("Ingresa un entero, por favor: "))
 Ingresa un entero, por favor: 42
 >>> if x < 0:
