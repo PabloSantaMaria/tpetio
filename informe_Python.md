@@ -608,3 +608,188 @@ La _ejecución_ de una función introduce una nueva tabla de símbolos usada par
 Los parámetros reales (argumentos) de una función se introducen en la tabla de símbolos local de la función llamada cuando esta es ejecutada; así, los argumentos son pasados por valor (dónde el valor es siempre una referencia a un objeto, no el valor del objeto). Cuando una función llama a otra función, una nueva tabla de símbolos local es creada para esa llamada.
 
 La definición de una función introduce el nombre de la función en la tabla de símbolos actual. El valor del nombre de la función tiene un tipo que es reconocido por el interprete como una función definida por el usuario.
+
+## Salida estándar
+La instrucción para desplegar información en la teminal de texto es `print`.
+`print()` es una función, por lo que el contenido a desplegar siempre debe estar expresado como un parámetro dentro de la función, es decir, que debe estar entre paréntesis.
+
+Cuando `print()` incluye una expresión, ésta es evaluada antes de ser desplegada. Del mismo modo, `print()` puede desplegar varias expresiones separadas por comas.
+
+Ejemplos:
+```
+>>> a = 2
+>>> print(a)
+2
+>>> 2 + 2
+4
+>>> print("Hola")
+Hola
+>>> print("Hola", "Mundo")
+Hola Mundo
+>>> print("Hola" + "Mundo")
+HolaMundo
+>>> print("Tienes", a, "buenos amigos.")
+Tienes 2 buenos amigos.
+>>> print("Tienes" + a + "buenos amigos.")
+---------------------------------------------------------------------------
+TypeError                                 Traceback (most recent call last)
+<ipython-input-8-e72a50cbaac8> in <module>()
+----> 1 print("Tienes" + a + "buenos amigos.")
+
+TypeError: must be str, not int
+```
+
+Todas las funciones, incluyendo a `print()`, regresan un valor. El valor que `print` regresa es `None`, pero este valor no es desplegado por el intérprete.
+```
+>>> nulo = print("Hola")
+>>> Hola
+nulo
+```
+Sin embargo, la función `print()` sí puede desplegar el valor `None`.
+```
+>>> print(nulo)
+None
+```
+
+### Despliegue con formato
+Para intercalar valores dentro de un formato específico de texto se utiliza el carácter sobre-escritura `%` seguido de uno de los siguientes caracteres.
+
+Caracter de escape	  |  Modo de despliegue
+--|--
+s  |  cadena de texto
+d  |  entero
+o  |  octal
+x  |  hexadecimal
+f  |  punto flotante
+e  |  punto flotante en formato exponencial
+
+
+El uso de `%s`, equivale a aplicar la función `str()` al valor a desplegar.
+Después del texto, se añade otro signo `%` y las expresiones o nombres correspondientes entre paréntesis y separados por comas. Si sólo es una expresión o nombre, no es necesario utilizar el paréntesis.
+
+Ejemplo:
+```
+>>> pi = 3.141592
+>>> radio = 2
+>>> print("El perímetro de un circulo de radio %d es %f." % (radio, 2 * radio * pi))
+El perímetro de un circulo de radio 2 es 12.566368.
+>>> print("El perímetro de un circulo de radio %d es %d." % (radio, 2 * radio * pi))
+El perímetro de un circulo de radio 2 es 12.
+>>> print("El perímetro de un circulo de radio %s es %s." % (radio, 2 * radio * pi))
+El perímetro de un circulo de radio 2 es 12.566368.
+>>> print("El valor de pi es %f." % (pi))
+El valor de pi es 3.141592.
+>>> print("El valor de pi es %e." % pi)
+El valor de pi es 3.141592e+00.  
+```
+>Para desplegar el signo de porcentaje "%" se utiliza `%%`.
+
+### Caracteres de escape
+Existen algunos caracteres que por su función o por la sintaxis de Python -tales como los apóstrofes, las comillas, los retornos de línea, etc.- que deben utilizar un "caracter de escape", para que puedan ser desplegados. Los caracteres de escape pueden ser introducidos después de una diagonal invertida `\`.
+
+Secuencia	  |  Despliegue
+--|--
+\n  |  Retorno de línea
+\t  |  Tabulador
+\"  |  Comillas
+\'  |  Apóstrofe
+\\  |  Diagonal invertida
+\xNN  |  Caracter que corresponde al número hexadecimal NN en ASCII
+\uNN  |  Caracter que corresponde al número hexadecimal NN en Unicode
+
+## Entrada estándar con `input()`
+
+La función `input()` captura los caracteres provenientes de entrada estándar (el teclado) hasta que se introduce un <Intro> y el contenido capturado es devuelto al intérprete como una cadena de texto.
+La cadena de caracteres resultante puede ser almacenada como un objeto de tipo _str_ mediante la asignación de un nombre.
+La función permite desplegar un mensaje de tipo _str_ como parámetro.
+
+La sintaxis es la siguiente:
+
+> `input(<objeto tipo str>)``
+
+Ejemplos:
+```
+>>> input()
+[Hola]
+'Hola'
+>>> texto = input()
+[Hola]
+>>> type(texto)
+str
+>>> texto
+'Hola'
+>>> print(texto)
+Hola
+>>> nombre = input("Escribe un nombre: ")
+>>> print(nombre)
+Escribe un nombre: [Juan]
+Juan
+```
+
+## Tipos de datos
+* **Tipado dinámico**
+Python es un lenguaje que no requiere que se defina el tipo de un objeto. El intérprete "infiere" el tipo de dato del que se trata.
+* **Fuertemente tipado**
+Existen operaciones que no están permitidas entre tipos que no sean compatibles.
+* **Los tipos son clases**
+En Python todos sus elementos son objetos y los datos una vez identificados, se convierten en objetos instanciados del tipo al que pertenecen.
+
+#### Números enteros (int)
+Python identifica a los número enteros como un tipo de dato el cual puede ser expresado de la siguiente manera.
+
+>_Decimal:_  
+24, 60
+_Binario:_
+0b010011, 0b1101
+_Hexadecimal:_
+0x18, 0x3cf4
+_Octal:_
+030, 074
+
+#### Números de punto flotante (float)
+Los objetos tipo float corresponden al conjunto de los números reales.
+
+>3.141595
+12.0
+-45.3556
+
+Hay que tomar en cuenta de que la precisión de los números dependen en gran medida de la capacidad del equipo de cómputo, por lo que en ocasiones una operación con números de tipo float no dará el resultado exacto, sino una aproximación.
+
+#### Números complejos (complex)
+Los objetos de tipo complex corresponden al conjunto de los números complejos.
+
+Siempre que el componente en los números reales sea distinto de 0, los objetos de tipo complex se expresarán como un par de números de tipo float separados por el operador de adición ``+``, en el que el primer número corresponde al componente en los números reales y el componente en los números imaginarios es identificado añadiéndole la letra `j` al final.
+
+>6.32 + 45j
+0.117j
+(2 + 0j)
+1j
+
+#### Valores booleanos (bool)
+El tipo booleano es una especie de tipo numérico que es utilizado para evaluar expresiones lógicas.
+
+Si la expresión lógica es cierta, el resultado es **True** (con mayúscula al principio).
+Si la expresión lógica NO es cierta, el resultado es **False** (con mayúscula al principio).
+`False` equivale numéricamente a `0`. Cualquier otro número equivale a `True` y su valor por defecto es `1`.
+
+#### Cadenas de caracteres (str)
+Las cadenas de caracteres son secuencias de caracteres encerradas entre comillas ``" "`` o apóstrofes ``' '`` indistintamente.
+
+>'Hola Mundo'
+"Vamos al McDonald's"
+None
+El tipo None representa un valor "vacío"
+
+#### Funciones relativas a tipos de datos
+* `type()`
+Entre otras cosas, type regresa el tipo de dato de una variable.
+* `str()`
+Transforma a un objeto compatible en una cadena de caracteres.
+* `int()`
+Transforma un objeto compatible a un objeto tipo int.
+* `float()`
+Transforma a un objeto compatible a uno de tipo float.
+* `complex()`
+Transforma a un objeto compatible a uno de tipo complex.
+* `bool()`
+Transforma en booleano a un objeto.
