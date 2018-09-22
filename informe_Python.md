@@ -2,17 +2,17 @@
 
 ## Generalidades
 
-* Una declaración debe estar toda en una sola línea. Para romper una declaración en múltiples líneas debe usarse ``\`` al final de cada una de ellas (salvo la última).  
-_Excepción_: siempre se puede romper dentro de cualquier par ``(), [] o {}``, o en una cadena delimitada por triple comillas.
+* Una declaración debe estar toda en una sola línea. Para romper una declaración en múltiples líneas debe usarse `\` al final de cada una de ellas (salvo la última).  
 
-* En una línea pueden aparecer más de una declaración separándolas por ``;``.
+_Excepción_: siempre se puede romper dentro de cualquier par `()`, `[]` o `{}`, o en una cadena delimitada por triple comillas.
 
-* Los comentarios comienzan con ``#`` y continúan hasta el final de la línea.
+* En una línea pueden aparecer más de una declaración separándolas por `;`.
 
-* Python también permite incluir comentarios de varias líneas. Éstos deben de estar encerrados entre triples comillas ``"""`` o apóstrofes ``' ' '``. Este tipo de comentarios son conocidos como "_docstrings_" y son utilizados para generar documentación que se desplegaría mediante la función `help()`.
+* Los comentarios comienzan con `#` y continúan hasta el final de la línea.
 
-* Un identificador está formado por una letra o símbolo `_` seguido de más
-letras, números o símbolos `_`.
+* Python también permite incluir comentarios de varias líneas. Éstos deben de estar encerrados entre triples comillas `"""` o apóstrofes `' ' '`. Este tipo de comentarios son conocidos como "_docstrings_" y son utilizados para generar documentación que se desplegaría mediante la función `help()`.
+
+* Un identificador está formado por una letra o símbolo `_` seguido de más letras, números o símbolos `_`.
 
 * Python distingue mayúsculas de minúsculas.
 
@@ -31,7 +31,7 @@ Al ingresar una declaración compuesta en forma interactiva, se debe finalizar c
 Las palabras reservadas (keywords) corresponden a los nombres de las declaraciones que el intérprete de Python incluye por defecto. No se deben utilizar dichas palabras para asignar nombres a otros objetos.
 El listado de palabras reservadas puede ser consultado ingresando ``help('keywords')`` desde la interfaz interactiva.
 
-```
+```python
 * False
 * def
 * if
@@ -81,17 +81,19 @@ El módulo `__buitlins__` contiene al resto de estos elementos.
 
 ## El operador de asignación `=`
 
-Para asignar un nombre a un objeto, se utiliza el el operador de asignación ``=`` con la siguiente sintaxis:
+Para asignar un nombre a un objeto, se utiliza el el operador de asignación `=` con la siguiente sintaxis:
 
-```
+```python
 <identificador> = <objeto>
 
 saludo = 'Hola'
 matriz = [["autobús", "diesel", True], ["automóvil", "gasolina", True]]
 numero = 23.45
 ```
+
 Es posible asignar a varios nombres un número igual de objetos usando un sólo operador de asignación mediante la siguiente sintaxis:
-```
+
+```python
 <nombre 1>, <nombre 2>, <nombre 3>, ..., <nombre n> = <objeto 1>, <objeto 2>, <objeto 3>, ..., <objeto n>
 entero, flotante, complejo, booleano = 12, 4.5, (12.3 + 23j), True
 ```
@@ -101,10 +103,10 @@ entero, flotante, complejo, booleano = 12, 4.5, (12.3 + 23j), True
 * Python 3 acepta el uso de _unicode_, por lo que es posible utilizar cualquier caracter alfabético, incluso aquellos distintos al alfabeto occidental, para la elaboración de nombres.
 * Los nombres pueden empezar con un guión bajo `_` o un caracter alfabético.
 * Después del primer caracter, se pueden utilizar caracteres alfabéticos, números y/o guiones bajos.
-* No se permiten caracteres distintos a los alfabéticos o que pudieran confundirse con operadores como ``|``,`` ~``, ``#``, ``-``, etc.
+* No se permiten caracteres distintos a los alfabéticos o que pudieran confundirse con operadores como `|` , `~` , `#` , `-` , etc.
 * Se pueden utilizar mayúsculas, pero cabe señalar que **Python es sensible a mayúsculas.**
 
-```
+```python
 _saludo = 'Hola'
 número = 23
 Numero = 45.32
@@ -114,7 +116,7 @@ Numero = 45.32
 
 Cada objeto cuenta con una "identidad", la cual corresponde a la posición en la que se encuentra almacenado en la memoria. La función `id()` permite conocer esta identidad por medio del nombre.
 
-```
+```python
 >>> numero = 45
 >>> otro_numero = 45
 >>> id(numero)
@@ -129,12 +131,14 @@ Cada objeto cuenta con una "identidad", la cual corresponde a la posición en la
 >>> numero
 45
 ```
+
 ## Expresiones y declaraciones
-#### Expresiones
+
+### Expresiones
 
 Una expresión es una combinación de valores, operadores, funciones y métodos que da por resultado un valor en una sola línea.
 
-```
+```python
 >>> 1 + 1
 2
 >>> 45 >= 11
@@ -143,10 +147,11 @@ True
 'CARRO'
 ```
 
-#### Declaraciones (Statements)
+### Declaraciones (Statements)
 
 Las declaraciones son unidades de código que el interprete de Python puede ejecutar. En realidad una declaración es un tipo de expresión.
-```
+
+```python
 >>> y = 0
 >>> for x in range(25):
 >>>    y += x
@@ -154,16 +159,20 @@ Las declaraciones son unidades de código que el interprete de Python puede ejec
 300
 ```
 
-El intérprete de Python permite ejecutar múltiples expresiones en una sola, separándolas por punto y comas ``;``. En este caso, sólo se desplegará el resultado de la última expresión ejecutada.
-```
+El intérprete de Python permite ejecutar múltiples expresiones en una sola, separándolas por punto y comas `;`. En este caso, sólo se desplegará el resultado de la última expresión ejecutada.
+
+```python
 >>> a = 3; b = a * 4.5; b; a + 5
 8
 ```
+
 _Advertencia_: No se recomienda usar este recurso ya que se corre el riesgo de ofuscar el código innecesariamente.
 
-#### Expresiones en el entorno interactivo.
+### Expresiones en el entorno interactivo.
+
 La interfaz interactiva evalúa las expresiones tan pronto como son ingresadas y en su caso, despliega el resultado.
-```
+
+```python
 >>> 4 * 3
 12
 >>> 15 == 25
@@ -173,13 +182,15 @@ False
 ```
 
 ## Salida estándar
+
 La instrucción para desplegar información en la teminal de texto es `print`.
 `print()` es una función, por lo que el contenido a desplegar siempre debe estar expresado como un parámetro dentro de la función, es decir, que debe estar entre paréntesis.
 
 Cuando `print()` incluye una expresión, ésta es evaluada antes de ser desplegada. Del mismo modo, `print()` puede desplegar varias expresiones separadas por comas.
 
 Ejemplos:
-```
+
+```python
 >>> a = 2
 >>> print(a)
 2
@@ -203,35 +214,39 @@ TypeError: must be str, not int
 ```
 
 Todas las funciones, incluyendo a `print()`, regresan un valor. El valor que `print` regresa es `None`, pero este valor no es desplegado por el intérprete.
-```
+
+```python
 >>> nulo = print("Hola")
 >>> Hola
 nulo
 ```
+
 Sin embargo, la función `print()` sí puede desplegar el valor `None`.
-```
+
+```python
 >>> print(nulo)
 None
 ```
 
 ### Despliegue con formato
+
 Para intercalar valores dentro de un formato específico de texto se utiliza el carácter sobre-escritura `%` seguido de uno de los siguientes caracteres.
 
-Caracter de escape	  |  Modo de despliegue
---|--
-s  |  cadena de texto
-d  |  entero
-o  |  octal
-x  |  hexadecimal
-f  |  punto flotante
-e  |  punto flotante en formato exponencial
-
+Caracter de escape|Modo de despliegue
+------------------|------------------
+s                 |cadena de texto
+d                 |entero
+o                 |octal
+x                 |hexadecimal
+f                 |punto flotante
+e                 |punto flotante en formato exponencial
 
 El uso de `%s`, equivale a aplicar la función `str()` al valor a desplegar.
 Después del texto, se añade otro signo `%` y las expresiones o nombres correspondientes entre paréntesis y separados por comas. Si sólo es una expresión o nombre, no es necesario utilizar el paréntesis.
 
 Ejemplo:
-```
+
+```python
 >>> pi = 3.141592
 >>> radio = 2
 >>> print("El perímetro de un circulo de radio %d es %f." % (radio, 2 * radio * pi))
@@ -245,33 +260,36 @@ El valor de pi es 3.141592.
 >>> print("El valor de pi es %e." % pi)
 El valor de pi es 3.141592e+00.  
 ```
+
 >Para desplegar el signo de porcentaje "%" se utiliza `%%`.
 
 ### Caracteres de escape
+
 Existen algunos caracteres que por su función o por la sintaxis de Python -tales como los apóstrofes, las comillas, los retornos de línea, etc.- que deben utilizar un "caracter de escape", para que puedan ser desplegados. Los caracteres de escape pueden ser introducidos después de una diagonal invertida `\`.
 
-Secuencia	  |  Despliegue
---|--
-\n  |  Retorno de línea
-\t  |  Tabulador
-\"  |  Comillas
-\'  |  Apóstrofe
-\\  |  Diagonal invertida
-\xNN  |  Caracter que corresponde al número hexadecimal NN en ASCII
-\uNN  |  Caracter que corresponde al número hexadecimal NN en Unicode
+Secuencia|Despliegue
+---------|----------
+\n       |Retorno de línea
+\t       |Tabulador
+\\"      |Comillas
+\\'      |Apóstrofe
+\\\      |Diagonal invertida
+\xNN     |Caracter que corresponde al número hexadecimal NN en ASCII
+\uNN     |Caracter que corresponde al número hexadecimal NN en Unicode
 
 ## Entrada estándar con `input()`
 
-La función `input()` captura los caracteres provenientes de entrada estándar (el teclado) hasta que se introduce un <Intro> y el contenido capturado es devuelto al intérprete como una cadena de texto.
+La función `input()` captura los caracteres provenientes de entrada estándar (el teclado) hasta que se introduce un [Enter] y el contenido capturado es devuelto al intérprete como una cadena de texto.
 La cadena de caracteres resultante puede ser almacenada como un objeto de tipo _str_ mediante la asignación de un nombre.
 La función permite desplegar un mensaje de tipo _str_ como parámetro.
 
 La sintaxis es la siguiente:
 
-> `input(<objeto tipo str>)``
+> `input(<objeto tipo str>)`
 
 Ejemplos:
-```
+
+```python
 >>> input()
 [Hola]
 'Hola'
@@ -290,74 +308,112 @@ Juan
 ```
 
 ## Tipos de datos
+
 * **Tipado dinámico**
+
 Python es un lenguaje que no requiere que se defina el tipo de un objeto. El intérprete "infiere" el tipo de dato del que se trata.
+
 * **Fuertemente tipado**
+
 Existen operaciones que no están permitidas entre tipos que no sean compatibles.
+
 * **Los tipos son clases**
+
 En Python todos sus elementos son objetos y los datos una vez identificados, se convierten en objetos instanciados del tipo al que pertenecen.
 
-#### Números enteros (int)
+### Números enteros (int)
+
 Python identifica a los número enteros como un tipo de dato el cual puede ser expresado de la siguiente manera.
 
->_Decimal:_  
-24, 60
-_Binario:_
-0b010011, 0b1101
-_Hexadecimal:_
-0x18, 0x3cf4
-_Octal:_
-030, 074
+>**_Decimal:_**
+>
+> 24, 60
+>
+>**_Binario:_**
+>
+>0b010011, 0b1101
+>
+>**_Hexadecimal:_**
+>
+>0x18, 0x3cf4
+>
+>**_Octal:_**
+>
+>030, 074
 
-#### Números de punto flotante (float)
+### Números de punto flotante (float)
+
 Los objetos tipo float corresponden al conjunto de los números reales.
 
->3.141595
+```python
+3.141595
 12.0
 -45.3556
+```
 
 Hay que tomar en cuenta de que la precisión de los números dependen en gran medida de la capacidad del equipo de cómputo, por lo que en ocasiones una operación con números de tipo float no dará el resultado exacto, sino una aproximación.
 
-#### Números complejos (complex)
+### Números complejos (complex)
+
 Los objetos de tipo complex corresponden al conjunto de los números complejos.
 
-Siempre que el componente en los números reales sea distinto de 0, los objetos de tipo complex se expresarán como un par de números de tipo float separados por el operador de adición ``+``, en el que el primer número corresponde al componente en los números reales y el componente en los números imaginarios es identificado añadiéndole la letra `j` al final.
+Siempre que el componente en los números reales sea distinto de 0, los objetos de tipo complex se expresarán como un par de números de tipo float separados por el operador de adición `+`, en el que el primer número corresponde al componente en los números reales y el componente en los números imaginarios es identificado añadiéndole la letra `j` al final.
 
->6.32 + 45j
+```python
+6.32 + 45j
 0.117j
 (2 + 0j)
 1j
+```
 
-#### Valores booleanos (bool)
+### Valores booleanos (bool)
+
 El tipo booleano es una especie de tipo numérico que es utilizado para evaluar expresiones lógicas.
 
 Si la expresión lógica es cierta, el resultado es **True** (con mayúscula al principio).
 Si la expresión lógica NO es cierta, el resultado es **False** (con mayúscula al principio).
 `False` equivale numéricamente a `0`. Cualquier otro número equivale a `True` y su valor por defecto es `1`.
 
-#### Cadenas de caracteres (str)
-Las cadenas de caracteres son secuencias de caracteres encerradas entre comillas ``" "`` o apóstrofes ``' '`` indistintamente.
+### Cadenas de caracteres (str)
 
->'Hola Mundo'
+Las cadenas de caracteres son secuencias de caracteres encerradas entre comillas `" "` o apóstrofes `' '` indistintamente.
+
+```python
+'Hola Mundo'
 "Vamos al McDonald's"
 None
+```
+
 El tipo None representa un valor "vacío"
 
-#### Funciones relativas a tipos de datos
+### Funciones relativas a tipos de datos
+
 * `type()`
+
 Entre otras cosas, type regresa el tipo de dato de una variable.
+
 * `str()`
+
 Transforma a un objeto compatible en una cadena de caracteres.
+
 * `int()`
+
 Transforma un objeto compatible a un objeto tipo int.
+
 * `float()`
+
 Transforma a un objeto compatible a uno de tipo float.
+
 * `complex()`
+
 Transforma a un objeto compatible a uno de tipo complex.
+
 * `bool()`
+
 Transforma en booleano a un objeto.
 
 ### Listas
+
 Python tiene varios tipos de datos compuestos, usados para agrupar otros valores. El más versátil es la **_lista_**, la cual puede ser escrita como una lista de valores separados por coma (ítems) entre corchetes. Las listas pueden contener ítems de diferentes tipos.
 
 ```python
@@ -490,7 +546,7 @@ True
 False
 
 >>> # veamos las operaciones para las letras únicas de dos palabras
-...
+
 >>> a = set('abracadabra')
 >>> b = set('alacazam')
 >>> a                                  # letras únicas en a
@@ -508,7 +564,7 @@ False
 ### Diccionarios
 
 Los diccionarios se encuentran a veces en otros lenguajes como “memorias asociativas” o “arreglos asociativos”. Los diccionarios se indexan con claves, que pueden ser cualquier tipo inmutable; las cadenas y números siempre pueden ser claves. No es posible usar listas como claves, ya que las listas pueden modificarse usando asignación por índice, asignación por sección, o métodos como `append()` y `extend()`.
-Un diccionario es un conjunto no ordenado de pares _clave:valor_, con el requerimiento de que las claves sean únicas (dentro de un diccionario en particular). Un par de llaves crean un diccionario vacío: ``{}``. Colocar una lista de pares _clave:valor_ separados por comas entre las llaves añade pares _clave:valor_ iniciales al diccionario; esta también es la forma en que los diccionarios se presentan en la salida.
+Un diccionario es un conjunto no ordenado de pares _clave:valor_, con el requerimiento de que las claves sean únicas (dentro de un diccionario en particular). Un par de llaves crean un diccionario vacío: `{}`. Colocar una lista de pares _clave:valor_ separados por comas entre las llaves añade pares _clave:valor_ iniciales al diccionario; esta también es la forma en que los diccionarios se presentan en la salida.
 
 Las operaciones principales sobre un diccionario son guardar un valor con una clave y extraer ese valor dada la clave. También es posible borrar un par _clave:valor_ con `del`. Si se usa una clave que ya está en uso para guardar un valor, el valor que estaba asociado con esa clave se pierde. Es un error extraer un valor usando una clave no existente.
 
@@ -545,16 +601,16 @@ False
 
 ### Operadores aritméticos
 
-Operador  |  Descripción
---|--
-+  |  Suma
--  |  Resta
--  |  Negativo
-*  |  Multiplicación
-**  |  Exponente
-/  |  División
-//  |  División entera
-%  |  Residuo
+Operador|Descripción
+--------|-----------
++       |Suma
+-       |Resta
+-       |Negativo
+*       |Multiplicación
+**      |Exponente
+/       |División
+//      |División entera
+%       |Residuo
 
 #### Reglas de precedencia
 
@@ -567,10 +623,10 @@ Operador  |  Descripción
 
 ### Operadores para objetos de tipo str
 
-Operador  |  Descripción
---|--
-+  |  Suma
-*  |  Repetición
+Operador|Descripción
+--------|-----------
++       |Suma
+*       |Repetición
 
 ```python
 >>> "hola" + "mundo"
@@ -583,22 +639,22 @@ Operador  |  Descripción
 
 Los operadores de relación evalúan si dos valores/objetos cumplen con una condición específica. El resultado de esta evaluación es un objeto de tipo bool.
 
-Operador  |  Evalúa
---|--
-==  |  a == b ¿a igual a b?
-!=  |  a != b ¿a distinta de b?
-\> |  a > b ¿a mayor que b?
-< |  a < b ¿a menor que b?
-\>=  |  a >= b ¿a mayor o igual que b?
-<= |  a <= b ¿a menor o igual que b?
+Operador|Evalúa
+--------|------
+==      |a == b ¿a igual a b?
+!=      |a != b ¿a distinta de b?
+\>      |a > b ¿a mayor que b?
+<       |a < b ¿a menor que b?
+\>=     |a >= b ¿a mayor o igual que b?
+<=      |a <= b ¿a menor o igual que b?
 
 #### Operadores lógicos
 
-Operador  |  Evalúa
---|--
-or  |  a or b ¿Se cumplen a o b?
-and  |  a and b ¿Se comple a y b?
-not |  not x Contrario a x
+Operador|Evalúa
+--------|------
+or      |a or b ¿Se cumplen a o b?
+and     |a and b ¿Se comple a y b?
+not     |not x Contrario a x
 
 #### Operadores de pertenencia
 
@@ -619,16 +675,16 @@ True
 
 Los operadores de asignación se utilizan para enlazar un objeto/valor con un nombre.
 
-Operador  |  Descripción
---|--
-=  |  x = y
-+=  |  x += y equivale a x = x + y
--=  |  x -= y equivale a x = x - y
-\*=  |  x \*= y equivale a x = x * y
-\**=  |  x \** = y equivale a x = x ** y
-/=  |  x /= y equivale a x = x / y
-//=  |  x //= y equivale a x = x // y
-%=  |  x %= y equivale a x = x % y
+Operador|Descripción
+--------|-----------
+=       |x = y
++=      |x += y equivale a x = x + y
+-=      |x -= y equivale a x = x - y
+\*=     |x \*= y equivale a x = x * y
+\**=    |x \** = y equivale a x = x ** y
+/=      |x /= y equivale a x = x / y
+//=     |x //= y equivale a x = x // y
+%=      |x %= y equivale a x = x % y
 
 ## Control de flujo
 
@@ -672,7 +728,8 @@ Ingresa un entero, por favor: 42
 #### Sentencia `while`
 
 Python cuenta con la palabra reservada `while` para ejecutar un bloque de código recursivamente mientras se cumpla una condición determinada. Cuando la expresión lógica evaluada por `while` sea `False` , el flujo de ejecución continuará sin ejecutar el bloque dentro de `while`.
-```
+
+```pyton
 <flujo principal>
 ...
 ...
@@ -680,9 +737,10 @@ while <expresión lógica>:
      <bloque inscrito a while>
 <flujo principal>
 ```
+
 El bucle while se ejecuta mientras la condición sea verdadera. En Python, como en C, cualquier entero distinto de cero es verdadero; cero es falso. La condición también puede ser una cadena de texto o una lista, de hecho cualquier secuencia; cualquier cosa con longitud distinta de cero es verdadero, las secuencias vacías son falsas.
 
-```
+```pyton
 >>> # Series de Fibonacci:
 ... # la suma de dos elementos define el siguiente
 ... a, b = 0, 1
@@ -697,26 +755,32 @@ El bucle while se ejecuta mientras la condición sea verdadera. En Python, como 
 5
 8
 ```
+
 #### Interrupciones de ejecución de un bloque
+
 En ciertas circunstancias es necesario interrumpir el flujo lógico de un programa. Python cuenta con los siguientes recursos para hacerlo.
 
-* La palabra reservada `continue`  
+* La palabra reservada `continue`
+
 Termina de forma prematura la ejecución de un bloque dentro de un ciclo.
 
-* La palabra reservada `break`  
+* La palabra reservada `break`
+
 Termina prematuramente la ejecución del bloque de código en el que se encuentra y restablece el flujo de ejecución al bloque de código que lo precede.
 
-* La función `exit()`  
+* La función `exit()`
+
 Termina la ejecución de un programa y cierra el intérprete de Python.
 
 #### Sentencia `for`
+
 Una de las grandes fortalezas de Python es su capacidad de realizar iteraciones de forma dinámica a partir de diversos tipos de objetos con la capacidad de ser iterables.
 
 Para iterar un objeto iterable se utiliza la siguiente sintaxis:
 
 >`for <contador> in <objeto iterable>:`
 
-```
+```pyton
 >>> # Midiendo cadenas de texto
 ... palabras = ['gato', 'ventana', 'defenestrado']
 >>> for p in palabras:
@@ -726,13 +790,14 @@ gato 4
 ventana 7
 defenestrado 12
 ```
+
 Si se necesita iterar sobre una secuencia de números, es apropiado utilizar la función `range()`
 
 #### Sentencia `range()`
 
 Genera progresiones aritméticas
 
-```
+```pyton
 >>> for i in range(5):
 ...     print(i)
 ...
@@ -745,11 +810,19 @@ Genera progresiones aritméticas
 
 Para definir rangos numéricos:
 
-* `range(n, m, s)` cumple: rango `>= n` and rango `< m` en incrementos de `s`.
-* `range(n, m)` cumple: rango `>= n` and rango `< m` en incrementos de 1.
-* `range(m)` cumple: rango `>= 0` and rango `< m` en incrementos de 1.
+* `range(n, m, s)`
 
-```
+    cumple: rango `>= n` and rango `< m` en incrementos de `s`.
+
+* `range(n, m)`
+
+    cumple: rango `>= n` and rango `< m` en incrementos de 1.
+
+* `range(m)`
+
+    cumple: rango `>= 0` and rango `< m` en incrementos de 1.
+
+```pyton
 for contador in range(26, 10, -4):
 ... print(contador)
 26
@@ -761,18 +834,24 @@ for contador in range(26, 10, -4):
 ## Funciones
 
 ### Definición de una función
+
 En Python, las funciones son objetos. De forma general, las funciones en Python se definen de la siguiente manera:  
 La palabra reservada `def` se usa para definir funciones. Debe seguirle el nombre de la función y la lista de parámetros formales entre paréntesis.
-```
+
+```pyton
 def <nombre>(<parámetros>):
     <código>
 ```
+
 Las funciones se invocan de la siguiente manera:
-```
+
+```python
 <nombre>(<argumentos>)
 ```
+
 Ejemplo:
-```
+
+```python
 >>> def fib(n):  # escribe la serie de Fibonacci hasta n
 ...     """Escribe la serie de Fibonacci hasta n."""
 ...     a, b = 0, 1
@@ -784,6 +863,7 @@ Ejemplo:
 ... fib(2000)
 0 1 1 2 3 5 8 13 21 34 55 89 144 233 377 610 987 1597
 ```
+
 La sentencia `return` devuelve un valor en una función.  
 `return` sin una expresión como argumento retorna `None`. Si se alcanza el final de una función, también se retorna `None`.
 
