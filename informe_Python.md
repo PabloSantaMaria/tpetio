@@ -1,47 +1,38 @@
 # Guía de referencia rápida de **_Python_**
-#Indice principal
-*[Generalidades](#generalidades)
-*[Indentación](#indentación)
-*[Palabras reservadas](#palabras-reservadas)
-*[El espacio de nombres](#el-espacio-de-nombres)
-*[El operador de asignación =](#el-operador-de-asignación-=)
-*[La función id()](#la-función-id())
-*[Expresiones y declaraciones](#expresiones-y-declaraciones)
-    *[Expresiones](#expresiones)
-    *[Declaraciones (Statements)](#declaraciones-(statements))
-*[Expresiones en el entorno interactivo.](#expresiones-en-el-entorno-interactivo.)
-*[Salida estándar](#salida-estándar)
-*[Despliegue con formato](#despliegue-con-formato)
-*[Caracteres de escape](#caracteres-de-escape)
-*[Despliegue con formato](#despliegue-con-formato)
-*[Entrada estándar con input()](#entrada-estándar-con-input())
-*[Tipos de datos](#tipos-de-datos)
-    *[Números enteros (int)](#números-enteros-(int))
-    *[Números de punto flotante (float)](#números-de-punto-flotante-(float))
-    *[Números complejos (complex)](#números-complejos-(complex))
-    *[Valores booleanos (bool)](#valores-booleanos-(bool))
-    *[Cadenas de caracteres (str)](#cadenas-de-caracteres-(str))
-    *[Listas](#listas)
-    *[Conjuntos](#conjuntos)
-    *[Diccionarios](#diccionarios)
-*[Operadores](#operadores)
-*[Control de flujo](#control-de-flujo)
-    *[Sentencia if](#sentencia-if)
-    *[Sentencia while](#sentencia-while)
-    *[Sentencia for](#sentencia-for)
-    *[Sentencia range()](#sentencia-range())
-*[Funciones](#funciones)
 
+# Índice principal
 
-
-
-
-
-
-
-
-
-
+* [Generalidades](#generalidades)
+* [Indentación](#indentación)
+* [Palabras reservadas](#palabras-reservadas)
+* [El espacio de nombres](#el-espacio-de-nombres)
+* [El operador de asignación =](#el-operador-de-asignación-=)
+* [La función id()](#la-función-id())
+* [Expresiones y declaraciones](#expresiones-y-declaraciones)
+  * [Expresiones](#expresiones)
+  * [Declaraciones (Statements)](#declaraciones-(statements))
+* [Expresiones en el entorno interactivo.](#expresiones-en-el-entorno-interactivo.)
+* [Salida estándar](#salida-estándar)
+* [Despliegue con formato](#despliegue-con-formato)
+* [Caracteres de escape](#caracteres-de-escape)
+* [Despliegue con formato](#despliegue-con-formato)
+* [Entrada estándar con input()](#entrada-estándar-con-input())
+* [Tipos de datos](#tipos-de-datos)
+  * [Números enteros (int)](#números-enteros-(int))
+  * [Números de punto flotante (float)](#números-de-punto-flotante-(float))
+  * [Números complejos (complex)](#números-complejos-(complex))
+  * [Valores booleanos (bool)](#valores-booleanos-(bool))
+  * [Cadenas de caracteres (str)](#cadenas-de-caracteres-(str))
+  * [Listas](#listas)
+  * [Conjuntos](#conjuntos)
+  * [Diccionarios](#diccionarios)
+* [Operadores](#operadores)
+* [Control de flujo](#control-de-flujo)
+  * [Sentencia if](#sentencia-if)
+  * [Sentencia while](#sentencia-while)
+  * [Sentencia for](#sentencia-for)
+  * [Sentencia range()](#sentencia-range())
+* [Funciones](#funciones)
 
 ## Generalidades
 
@@ -110,12 +101,12 @@ El listado de palabras reservadas puede ser consultado ingresando ``help('keywor
 * pass
 ```
 
-El intérprete utiliza otros elementos por defecto los cuales aún cuando son parte fundamental del lenguaje y aún cuando no son palabras reservadas, no se recomienda utilizarlos como nombres.
+El intérprete utiliza otros elementos por defecto los cuales aún cuando son parte fundamental del lenguaje y  no son palabras reservadas, no se recomienda utilizarlos como nombres.
 El módulo `__buitlins__` contiene al resto de estos elementos.
 
 ## El espacio de nombres (namespace)
 
-* Python es un lenguaje de muy alto nivel en el que todos sus elementos son objetos, incluyendo los tipos de datos básicos.
+* Python es un lenguaje de muy alto nivel, en el que todos sus elementos son objetos, incluyendo los tipos de datos básicos.
 * La gestión del uso de la memoria es automático en Python, tanto para la asignación de memoria al crear un objeto, como para la recuperación de memoria al desecharlo.
 * El espacio de nombres (namespace) contiene un listado de los objetos existentes en la memoria del sistema y los nombres a los que están ligados.
 * Un objeto puede tener más de un nombre.
@@ -124,7 +115,7 @@ El módulo `__buitlins__` contiene al resto de estos elementos.
 
 ## El operador de asignación `=`
 
-Para asignar un nombre a un objeto, se utiliza el el operador de asignación `=` con la siguiente sintaxis:
+Para asignar un nombre a un objeto, se utiliza el operador de asignación `=` con la siguiente sintaxis:
 
 ```python
 <identificador> = <objeto>
@@ -211,7 +202,7 @@ El intérprete de Python permite ejecutar múltiples expresiones en una sola, se
 
 _Advertencia_: No se recomienda usar este recurso ya que se corre el riesgo de ofuscar el código innecesariamente.
 
-### Expresiones en el entorno interactivo.
+### Expresiones en el entorno interactivo
 
 La interfaz interactiva evalúa las expresiones tan pronto como son ingresadas y en su caso, despliega el resultado.
 
