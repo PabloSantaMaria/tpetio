@@ -1,5 +1,7 @@
 # Guía de referencia rápida de **_Python_**
-#Indice principal
+
+# Índice principal
+
 * [Generalidades](#generalidades)
 * [Indentación](#indentación)
 * [Palabras reservadas](#palabras-reservadas)
@@ -7,8 +9,8 @@
 * [El operador de asignación =](#el-operador-de-asignación-=)
 * [La función id()](#la-función-id())
 * [Expresiones y declaraciones](#expresiones-y-declaraciones)
-    * [Expresiones](#expresiones)
-    * [Declaraciones (Statements)](#declaraciones-(statements))
+  * [Expresiones](#expresiones)
+  * [Declaraciones (Statements)](#declaraciones-(statements))
 * [Expresiones en el entorno interactivo.](#expresiones-en-el-entorno-interactivo.)
 * [Salida estándar](#salida-estándar)
 * [Despliegue con formato](#despliegue-con-formato)
@@ -16,22 +18,21 @@
 * [Despliegue con formato](#despliegue-con-formato)
 * [Entrada estándar con input()](#entrada-estándar-con-input())
 * [Tipos de datos](#tipos-de-datos)
-    * [Números enteros (int)](#números-enteros-(int))
-    * [Números de punto flotante (float)](#números-de-punto-flotante-(float))
-    * [Números complejos (complex)](#números-complejos-(complex))
-    * [Valores booleanos (bool)](#valores-booleanos-(bool))
-    * [Cadenas de caracteres (str)](#cadenas-de-caracteres-(str))
-    * [Listas](#listas)
-    * [Conjuntos](#conjuntos)
-    * [Diccionarios](#diccionarios)
-*   [Operadores](#operadores)
+  * [Números enteros (int)](#números-enteros-(int))
+  * [Números de punto flotante (float)](#números-de-punto-flotante-(float))
+  * [Números complejos (complex)](#números-complejos-(complex))
+  * [Valores booleanos (bool)](#valores-booleanos-(bool))
+  * [Cadenas de caracteres (str)](#cadenas-de-caracteres-(str))
+  * [Listas](#listas)
+  * [Conjuntos](#conjuntos)
+  * [Diccionarios](#diccionarios)
+* [Operadores](#operadores)
 * [Control de flujo](#control-de-flujo)
-    * [Sentencia if](#sentencia-if)
-    * [Sentencia while](#sentencia-while)
-    * [Sentencia for](#sentencia-for)
-    * [Sentencia range()](#sentencia-range())
-*   [Funciones](#funciones)
-
+  * [Sentencia if](#sentencia-if)
+  * [Sentencia while](#sentencia-while)
+  * [Sentencia for](#sentencia-for)
+  * [Sentencia range()](#sentencia-range())
+* [Funciones](#funciones)
 
 ## Generalidades
 
@@ -201,7 +202,7 @@ El intérprete de Python permite ejecutar múltiples expresiones en una sola, se
 
 _Advertencia_: No se recomienda usar este recurso ya que se corre el riesgo de ofuscar el código innecesariamente.
 
-### Expresiones en el entorno interactivo.
+### Expresiones en el entorno interactivo
 
 La interfaz interactiva evalúa las expresiones tan pronto como son ingresadas y en su caso, despliega el resultado.
 
