@@ -5,13 +5,13 @@
 * [Generalidades](#generalidades)
 * [Indentación](#indentación)
 * [Palabras reservadas](#palabras-reservadas)
-* [El espacio de nombres](#el-espacio-de-nombres)
+* [El espacio de nombres (namespace)](#el-espacio-de-nombres-(namespace))
 * [El operador de asignación =](#el-operador-de-asignación-=)
 * [La función id()](#la-función-id())
 * [Expresiones y declaraciones](#expresiones-y-declaraciones)
   * [Expresiones](#expresiones)
   * [Declaraciones (Statements)](#declaraciones-(statements))
-* [Expresiones en el entorno interactivo.](#expresiones-en-el-entorno-interactivo.)
+* [Expresiones en el entorno interactivo](#expresiones-en-el-entorno-interactivo.)
 * [Salida estándar](#salida-estándar)
 * [Despliegue con formato](#despliegue-con-formato)
 * [Caracteres de escape](#caracteres-de-escape)
@@ -637,10 +637,10 @@ False
 
 Operador|Descripción
 --------|-----------
-+       |Suma
--       |Resta
--       |Negativo
-*       |Multiplicación
+\+       |Suma
+\-       |Resta
+\-       |Negativo
+\*       |Multiplicación
 **      |Exponente
 /       |División
 //      |División entera
@@ -659,8 +659,8 @@ Operador|Descripción
 
 Operador|Descripción
 --------|-----------
-+       |Suma
-*       |Repetición
+\+       |Suma
+\*       |Repetición
 
 ```python
 >>> "hola" + "mundo"
@@ -682,7 +682,7 @@ Operador|Evalúa
 \>=     |a >= b ¿a mayor o igual que b?
 <=      |a <= b ¿a menor o igual que b?
 
-#### Operadores lógicos
+### Operadores lógicos
 
 Operador|Evalúa
 --------|------
@@ -690,7 +690,7 @@ or      |a or b ¿Se cumplen a o b?
 and     |a and b ¿Se comple a y b?
 not     |not x Contrario a x
 
-#### Operadores de pertenencia
+### Operadores de pertenencia
 
 Los operadores `in` y `not in` evalúan si un objeto se encuentra dentro de otro.
 
@@ -901,7 +901,7 @@ Ejemplo:
 La sentencia `return` devuelve un valor en una función.  
 `return` sin una expresión como argumento retorna `None`. Si se alcanza el final de una función, también se retorna `None`.
 
-La _ejecución_ de una función introduce una nueva tabla de símbolos usada para las variables locales de la función. Más precisamente, todas las asignaciones de variables en la función almacenan el valor en la tabla de símbolos local; así mismo la referencia a variables primero mira la tabla de símbolos local, luego en la tabla de símbolos local de las funciones externas, luego la tabla de símbolos global, y finalmente la tabla de nombres predefinidos. Así, no se les puede asignar directamente un valor a las variables globales dentro de una función (a menos se las nombre en la sentencia global), aunque si pueden ser referenciadas.
+La _ejecución_ de una función introduce una nueva tabla de símbolos usada para las variables locales de la función. Más precisamente, todas las asignaciones de variables en la función almacenan el valor en la tabla de símbolos local; así mismo la referencia a variables primero mira la tabla de símbolos local, luego en la tabla de símbolos local de las funciones externas, luego la tabla de símbolos global, y finalmente la tabla de nombres predefinidos. Así, no se les puede asignar directamente un valor a las variables globales dentro de una función (a menos se las nombre en la sentencia global), aunque sí pueden ser referenciadas.
 
 Los parámetros reales (argumentos) de una función se introducen en la tabla de símbolos local de la función llamada cuando esta es ejecutada; así, los argumentos son pasados por valor (dónde el valor es siempre una referencia a un objeto, no el valor del objeto). Cuando una función llama a otra función, una nueva tabla de símbolos local es creada para esa llamada.
 
